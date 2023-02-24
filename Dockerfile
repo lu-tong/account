@@ -11,3 +11,4 @@ COPY target/*.jar /app.jar
 ENTRYPOINT ["sh","-c","java -jar $JAVA_OPTS /app.jar $PARAMS"]
 
 EXPOSE 8080
+COPY doc/config/application.yaml /root/configs/account/application.yaml

@@ -5,7 +5,7 @@ app:
 spring:
   config:
     import:
-    - optional:${app.config}/account.yaml
+    - optional:${app.config}/application.yaml
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:13306/account
