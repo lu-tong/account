@@ -61,6 +61,7 @@ public class AccountController {
             if (Objects.nonNull(account)) {
                 return PduUtils.success(account.getMoney());
             }
+            logger.warn("账户不存在 {{}}", uid);
             return PduUtils.fail("无权访问");
         } catch (Throwable th) {
             logger.error("查找失败", th);

@@ -74,6 +74,7 @@ public class AccountService {
         Pdu<Long> res = this.modMoney(record, r -> {
             try {
                 this.accountDb.update("update account.account set money=money+? where uid=?", r.getNumber(), r.getAccount());
+                logger.info("入账成功 channel{{}} orderId{{}} account{{}}, number{{}}",r.getChannel(), r.getOrderId(), r.getAccount(), r.getNumber());
                 return PduUtils.success(r.getNumber());
             }catch (Throwable th) {
                 logger.error("", th);
@@ -101,6 +102,7 @@ public class AccountService {
                         "update account.account set money=money-? where uid=? and money=?",
                         r.getNumber(), r.getAccount(), account.getMoney()
                 );
+                logger.info("出账成功 channel{{}} orderId{{}} account{{}}, number{{}}",r.getChannel(), r.getOrderId(), r.getAccount(), r.getNumber());
                 return PduUtils.success(r.getNumber());
             }catch (Throwable th) {
                 logger.error("", th);
