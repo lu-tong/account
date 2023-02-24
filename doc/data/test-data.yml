@@ -1,0 +1,34 @@
+services:
+  mysql:
+    image: mysql:8.0.32
+    container_name: mysql-test
+    hostname: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    ports:
+      - "13306:3306"
+    expose:
+      - 3306
+    networks:
+      - data
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+      - ./v-mysql:/var/lib/mysql
+
+  redis:
+    image: redis:7.0.8-alpine3.17
+    container_name: redis-test
+    hostname: redis
+    ports:
+      - "16379:6379"
+    expose:
+      - 6379
+    volumes:
+      - ./v-redis:/data
+    networks:
+      - data
+
+
+networks:
+  data:
+    name: test
