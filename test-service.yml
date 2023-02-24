@@ -1,0 +1,15 @@
+services:
+  account:
+    image: ufutao/account:v1.0.0
+    container_name: account-test
+    hostname: account
+    ports:
+      - "8080:8080"
+    expose:
+      - 8080
+    networks:
+      - data
+
+networks:
+  data:
+    name: test

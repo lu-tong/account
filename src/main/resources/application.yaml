@@ -1,0 +1,16 @@
+app:
+  name: account
+  config: ${user.home}/configs/${app.name}
+
+spring:
+  config:
+    import:
+    - optional:${app.config}/account.yaml
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:13306/account
+    username: ufutao
+    password: ufutaoPublicPWD
+  redis:
+    host: localhost
+    port: 16379
