@@ -17,3 +17,48 @@
 
 如果对部分场景细节不清，或涉及到外部接口调用部分，可以用伪代码替代。
 
+## 快速使用
+
+### 主机有安装docker，在项目目录下执行 
+
+```shell
+# 运行服务
+make up_service
+
+# 关闭服务
+# make down_service
+```
+
+之后访问 localhost:8080 即可
+
+### 主机没有安装docker
+
+主机则需要配置 mysql与redis
+
+#### mysql
+
+1. mysql 监听 localhost:13306，或 修改项目配置
+2. 需要执行 doc/data/sql 下的sql
+
+#### redis
+
+1. redis 监听 localhost:16379 并 允许redis免密码登录 或 修改项目配置
+
+### 联合idea调试
+
+#### 主机有安装docker
+
+```shell
+# 安装开发环境
+make up_env
+
+# 移除开发环境
+# make down_env
+```
+
+然后使用ide调试
+
+#### 主机没有安装docker
+
+1. 主机需要配置 mysql与redis，可以参考前文
+2. 使用ide调试

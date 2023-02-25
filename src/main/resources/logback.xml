@@ -1,5 +1,5 @@
 <configuration>
-    <property name="ProjectName" value="serviceman"/>
+    <property name="ProjectName" value="account"/>
 
     <!-- 通用变量 -->
     <property name="LogPattern" value="[%-5p %X{traceId}][%d{yyyy-MM-dd HH:mm:ss} %t %c] %m%n"/>
